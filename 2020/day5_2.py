@@ -29,10 +29,12 @@ def get_seat( bpass ):
     col = get_col(bpass[7:])
     return (row, col, row*8+col)
 
-
-max_seat = 0
+seats = []
 for bpass in input:
-    seat = get_seat(bpass)
-    if seat[2] > max_seat:
-        max_seat = seat[2]
-print(max_seat)
+    seats.append(get_seat(bpass))
+seats.sort(key=lambda s: s[2])
+
+for i in range(len(seats)-1):
+    if seats[i][2]+1 != seats[i+1][2]:
+        print(seats[i][2]+1)
+        break
