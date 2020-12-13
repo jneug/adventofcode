@@ -1,16 +1,7 @@
-instr = '''
-A contain 1 C.
-B contain 1 D.
-C contain no other bags.
-D contain 1 E.
-E contain no other bags.
-F contain 1 D.
-'''
-
 input = dict()
 with open('day7_input.txt', 'r') as f:
     for line in f.readlines():
-        if len(line.strip()) > 0:    
+        if len(line.strip()) > 0:
             btype, content = line.strip()[:-1].split(' contain ')
             btype= btype[:-1]
             input[btype] = content.split(', ')
